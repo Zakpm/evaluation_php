@@ -7,6 +7,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
+
     $post_clean = [];
     $create_form_errors = [];
 
@@ -18,6 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     // pour le nom du livre 
 
+    require __DIR__ . "/fonctions/fonction.php";
+
     if (isset($post_clean['title'])){
 
         if(empty($post_clean['title'])){
@@ -28,7 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
             $create_form_errors['title'] = "Le nom du livre doit contenir au maximu 255 caractères.";
 
-        } 
+            // afficher l'erreur en cas de nom du livre identique
+        } // else if ($_SESSION['old]['title'] == $_POST)
+         //  faire appel à la fonction : = function unique(){}
+        //  $create_form_errors['title] = "Le nom du film existe déjà.";
 
     }
     // pour l'auteur du livre 
@@ -163,10 +169,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     <main>
         <h1>Nouveau livre</h1>
-
-
-
-
 
 
         <!---------------- message d'erreur  ------------------------->

@@ -30,7 +30,7 @@ $livres = $req -> fetchAll();
             <?php endif ?>
 
         <div>
-            <a href="create.php">Ajouter film</a>
+            <a href="create.php">Ajouter livre</a>
         </div>
         
         <?php if(isset($livres) && !empty($livres)) : ?>
